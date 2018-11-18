@@ -1,0 +1,37 @@
+
+.form-container
+{
+    box-shadow: 0px 0px 10px 0px orange;
+    padding: 10px;
+    margin-top: 60px;
+    background: white;
+}
+.form-container:hover
+{
+    box-shadow: 0px 0px 20px 10px orangered;
+    transition: 0.5s;
+}
+.bg
+{
+    background: url('back.svg');
+    width: 100%;
+    height: 100vh;
+    background-size: 200%;
+    opacity: revert;
+}
+
+@media only screen and (max-width:680px) {
+    .bg
+    {
+        background-size: 300%;
+    }
+}
+.navbar
+{
+    box-shadow: 0px 0px 10px 0px orange;
+}
+.navbar:hover
+{
+    box-shadow: 0px 0px 20px 10px orangered;
+    transition: 0.5s;
+}
