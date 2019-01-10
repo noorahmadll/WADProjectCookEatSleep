@@ -1,4 +1,7 @@
+input[type],select
+{
 
+}
 .form-container
 {
     box-shadow: 0px 0px 10px 0px orange;
@@ -31,8 +34,8 @@
     box-shadow: 0px 0px 20px 10px orangered;
     transition: 0.5s;
 }
-
-h1,h2{
+h1,h2
+{
     text-align: center;
 }
 #about{
@@ -49,3 +52,55 @@ h1,h2{
 i{
     color:black;
 }
+.imagecontainer
+{
+    width: 50%;
+    margin-left: 90px;
+}
+
+
+.sb
+{
+
+    height: 60px;
+    background-color: orange;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input
+{
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 40px;
+    transition: width 0.5s ;
+}
+
+.sb:hover > .search_input
+{
+    padding: 0 10px;
+    width: 300px;
+    transition: width 0.5s;
+}
+
+.sb:hover > .search_icon
+{
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon
+{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+}
+
