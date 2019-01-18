@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 01:14 PM
+-- Generation Time: Jan 18, 2019 at 01:20 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -34,6 +34,17 @@ CREATE TABLE `posts` (
   `Likes` int(11) NOT NULL,
   `Recipe_Name` varchar(255) NOT NULL,
   `description_recipe` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `Recipe_id` int(11) NOT NULL,
+  `Recipe_Name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
