@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 01:07 PM
+-- Generation Time: Jan 18, 2019 at 01:14 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -31,7 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `Likes` int(11) NOT NULL
+  `Likes` int(11) NOT NULL,
+  `Recipe_Name` varchar(255) NOT NULL,
+  `description_recipe` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
