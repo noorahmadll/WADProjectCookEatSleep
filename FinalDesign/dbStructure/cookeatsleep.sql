@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2019 at 05:16 PM
+-- Generation Time: Jan 20, 2019 at 06:13 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -58,6 +58,13 @@ CREATE TABLE `recipes` (
   `Recipe_Description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `recipes`
+--
+
+INSERT INTO `recipes` (`Recipe_id`, `Recipe_Name`, `Recipe_Description`) VALUES
+(1, 'jjjjj', 'llllll');
+
 -- --------------------------------------------------------
 
 --
@@ -92,11 +99,27 @@ ALTER TABLE `posts`
   ADD KEY `posts_ibfk_1` (`username`);
 
 --
+-- Indexes for table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`Recipe_id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `email` (`DateOfBirth`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
