@@ -38,7 +38,7 @@ Show_Navbar();
 				</select>
 				<input type="date" class="form-control" id="dob" placeholder="Date Of Birth">
 				<br>
-				<input class="form-control" type="file" id="pro_img" name="pro_img">
+				<input class="form-control" type="file" accept="image/png, image/jpeg" id="pro_img" name="pro_img">
 
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input" id="Check1">
