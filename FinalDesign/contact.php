@@ -25,17 +25,9 @@
 ?>
 
 <br><br>
-<div class="h-100">
-    <div class="d-flex justify-content-center h-100">
-        <div class="sb">
-            <input class="search_input" type="text" name="" placeholder="FIND ANY FOOD">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-        </div>
-    </div>
-</div>
-<br><br>
 
-<div class="container-fluid hoverable" style="">
+
+<div class="container-fluid hoverable">
     <div class="row p-2">
         <div class="mx-auto col-lg-7 shadow-lg shadow-md shadow-sm bg-warning">
             <h1 class="my-4">MEET OUR MEMEBRS</h1><hr>
@@ -50,26 +42,12 @@
         <div class="mx-auto col-lg-7 shadow-lg shadow-md shadow-sm bg-warning">
             <br>
             <div class="row text-center">
-                <div class="col-sm-3 col-xs-6 p-2">
-                    <h1><span class="fas fa-phone" style="color: red"></span></h1>
-                    <h3>Phone</h3>
-                    <p>+92 315 0722892</p><br>
-                </div>
-                <div class="col-sm-3 col-xs-6 p-2">
-                    <h1><span class="fas fa-home" style="color: red"></span></h1>
-                    <h3>Location</h3>
-                    <p>A-BLOCK PCSIR2</p><br>
-                </div>
-                <div class="col-sm-3 col-xs-6 p-2">
-                    <h1><span class="fas fa-at" style="color: red"></span></h1>
-                    <h3>E-mail</h3>
-                    <p>cookeatsleep@gmail.com</p><br>
-                </div>
-                <div class="col-sm-3 col-xs-6 p-2">
-                    <h1><span class="fas fa-globe" style="color: red"></span></h1>
-                    <h3>Web</h3>
-                    <p>www.cookeatsleep.com</p><br>
-                </div>
+					<?php
+					ContactInfo("phone","Phone","+92 315 0722892");
+					ContactInfo("home","Location",">A-BLOCK PCSIR2");
+					ContactInfo("at","E-mail","cookeatsleep@gmail.com");
+					ContactInfo("globe","Web","www.cookeatsleep.com");
+                ?>
             </div>
         </div>
     </div>
