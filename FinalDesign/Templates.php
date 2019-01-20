@@ -138,11 +138,13 @@ function Load_Posts(){
 					<p>
                         '.$row['description_recipe'].'
 					</p>
-					<img alt="Bootstrap Image Preview" src="./Images/'.$row['imagePath'].'" /><br>
+					<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/><br>
 					<a href="#">Details</a>
 					<p>posted by: '.$row['username'].'</p>
 					<Button class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like '.$row['Likes'].' </Button>
 				</div>
 			</div>';
     }
+
+
 }
