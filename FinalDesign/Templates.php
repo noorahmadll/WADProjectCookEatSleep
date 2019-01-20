@@ -122,3 +122,27 @@ function ScriptTags()
 
 <script src="js/index.js"></script>';
 }
+
+
+
+function Load_Posts(){
+
+    $query = "select *from posts";
+    global $con;
+    $result = mysqli_query($con, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo'<div class="col-md-4" style="background-color: azure;">
+				<div class="single-content">
+					<h3><i class="fa fa-utensils"></i> '.$row['Recipe_Name'].'</h3>
+					<p>
+                        '.$row['description_recipe'].'
+					</p>
+					<img alt="Bootstrap Image Preview" src="./Images/'.$row['imagePath'].'" /><br>
+					<a href="#">Details</a>
+					<p>posted by: '.$row['username'].'</p>
+					<Button class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like '.$row['Likes'].' </Button>
+				</div>
+			</div>';
+    }
+}
