@@ -1,40 +1,35 @@
 <?php
+session_start();
 require "Templates.php";
+if(!isset($_SESSION['email'])){
+    header('location: login.php?not_user=You are not logged in!');
+}
+//if(isset($_POST['insert_post'])){
+//    //getting text data from the fields
+//
+//
+////    $post_username=;
+////    $Likes=$_POST['pro_title'];
+////    $recipename=$_POST['pro_title'];
+////    $desciption=$_POST['pro_title'];
+////    $image=$_POST['pro_img']['name'];
+//
+//
+//}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php Headerr("home", 0); ?>
 <body class="bg">
+<?php
 
-<nav class="navbar navbar-expand-md navbar-light bg-light visible clearfix ">
-	<div class="container-fluid">
-		<h1 class="h1"><a class="navbar-brand" href="index.php"><img src="Images/icon.ico" style="width: 20%;" >Cooking Guide</a></h1>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="Profile.php">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.php">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="contact.php">Contact</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="#">Nearby</a>
-				</li>
-			</ul>
-			<ul class="navbar-nav ml-auto">
-				<li>
-					<a class="nav-link btn btn-outline-warning font-weight-bold" href="login.php">Logout</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
+if(isset($_SESSION['email'])){
+    Show_Navbar_L();
+}
+else Show_Navbar();
+?>
+
 <br>
 <?php
 Search_Bar();
@@ -55,7 +50,7 @@ Search_Bar();
 			<div class="col-md-12">
 				<input class="form-control" type="file" accept="image/png, image/jpeg" id="pro_img" name="pro_img">
 			</div>
-			<button type="submit" class="btn btn-primary btn-block w-50 mx-auto">Post</button>
+			<button name="insert_post"type="submit" class="btn btn-primary btn-block w-50 mx-auto">Post</button>
 		</form>
 	</div>
 </div>

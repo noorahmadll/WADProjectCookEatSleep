@@ -1,21 +1,42 @@
 <?php
-require "Templates.php";
 
+session_start();
+require "Templates.php";
+$error_msg = '';
 if (isset($_POST['login'])) {
 
-
-	$user=$_POST['user'];
-	$pass=$_POST['pass'];
-
-    $querryy = "select *from user";
-    $checker = mysqli_query($con, $querryy);
-    while ($row = mysqli_fetch_assoc($checker)) {
-        if (($user === $row['username'] || $user === $row['email']) && $pass ===$row['password']) {
-            $url="./Profile.php";
-            header('Location: '.$url);
-        }
+    $email = $_POST['user'];
+    $pass = $_POST['pass'];
+    $sel_user = "select * from user where email='$email' AND password='$pass'";
+    $run_user = mysqli_query($con, $sel_user);
+    $check_user = mysqli_num_rows($run_user);
+    if($check_user==0){
+        $error_msg = 'Password or Email is wrong, try again';
     }
-    echo '<script>alert("wrong username or password or both");</script>';
+    else{
+        $_SESSION['email'] = $email;
+        if(!empty($_POST['remember'])) {
+            setcookie('user_email', $email, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('user_pass', $pass, time() + (10 * 365 * 24 * 60 * 60));
+        } else {
+            setcookie('user_email','' );
+            setcookie('user_pass', '');
+        }
+        header('location:Profile.php');
+    }
+
+//	$user=$_POST['user'];
+//	$pass=$_POST['pass'];
+//
+//    $querryy = "select *from user";
+//    $checker = mysqli_query($con, $querryy);
+//    while ($row = mysqli_fetch_assoc($checker)) {
+//        if (($user === $row['username'] || $user === $row['email']) && $pass ===$row['password']) {
+//            $url="./Profile.php";
+//            header('Location: '.$url);
+//        }
+//    }
+//    echo '<script>alert("wrong username or password or both");</script>';
 
 
 }
@@ -38,7 +59,10 @@ Show_Navbar();
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-6 col-sm-6 col-lg-5 col-xl-4">
+
 				<form class="form-group form-container bg-warning" method="post">
+                    <?php echo $error_msg;?>
+                    <?php echo @$_GET['not_user'];?>
 					<h1 class="text-center"><i class="fas fa-user-circle" style="font-size:150px;color:gray"></i></h1>
 					<hr>
 					<h4 class="text-center"><i class="fas fa-envelope"></i> <label for="exampleInputEmail1">Email

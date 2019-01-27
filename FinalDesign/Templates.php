@@ -39,16 +39,13 @@ function Show_Navbar()
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="Profile.php">Profile</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="about.php">About</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" href="contact.php">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Nearby</a>
+					<a class="nav-link active" href="#">Search</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -59,7 +56,40 @@ function Show_Navbar()
 				<li>
 					<a class="nav-link btn btn-outline-warning font-weight-bold" href="register.php">Sign Up</a>
 				</li>
+			</ul>			
+		</div>
+	</div>
+</nav>';
+}
+function Show_Navbar_L()
+{
+    echo '<nav class="navbar navbar-expand-md navbar-light bg-light visible clearfix ">
+	<div class="container-fluid">
+		<h1 class="h1"><a class="navbar-brand" href="index.php"><img src="Images/icon.ico" style="width: 20%;" >Cooking Guide</a></h1>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav">
+			<li class="nav-item">
+					<a class="nav-link" href="Profile.php">Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.php">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="contact.php">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="#">Search</a>
+				</li>
 			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li>
+					<a class="nav-link btn btn-outline-warning font-weight-bold" href="Logout.php">Logout</a>
+				</li>
+				<h> </h>
+			</ul>			
 		</div>
 	</div>
 </nav>';

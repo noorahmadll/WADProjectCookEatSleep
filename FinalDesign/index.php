@@ -1,4 +1,5 @@
 <?php
+session_start();
 	require "Templates.php";
 ?>
 
@@ -8,7 +9,14 @@
 	Headerr("Welcome",0);
 ?>
 <body class="bg">
-<?php Show_Navbar(); ?>
+
+<?php
+
+if(isset($_SESSION['email'])){
+	Show_Navbar_L();
+}
+else Show_Navbar();
+?>
 <br>
 <?php Search_Bar();?>
 <br>
