@@ -1,0 +1,1 @@
+this folder contains original changes in html pages made by haseeb after mid
