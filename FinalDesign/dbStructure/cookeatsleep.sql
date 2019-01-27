@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2019 at 03:58 PM
+-- Generation Time: Jan 27, 2019 at 12:23 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `cookeatsleep`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `user_email` varchar(255) NOT NULL,
+  `user_pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`user_email`, `user_pass`) VALUES
+('ha@xyz.com', '123'),
+('noor@xyz.com', '123');
 
 -- --------------------------------------------------------
 
@@ -54,7 +73,7 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`Recipe_id`, `Recipe_Name`, `Recipe_Description`) VALUES
-(1, 'jjjjj', 'llllll');
+(2, 'huhuhu', 'jdldsj');
 
 -- --------------------------------------------------------
 
@@ -85,6 +104,12 @@ INSERT INTO `user` (`username`, `DateOfBirth`, `name`, `email`, `password`, `pro
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`user_email`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -111,7 +136,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
