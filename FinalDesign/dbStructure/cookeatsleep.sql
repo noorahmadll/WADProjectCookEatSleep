@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2019 at 12:23 PM
+-- Generation Time: Jan 28, 2019 at 05:24 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -53,8 +53,16 @@ CREATE TABLE `posts` (
   `Likes` int(11) NOT NULL,
   `Recipe_Name` varchar(255) NOT NULL,
   `description_recipe` text NOT NULL,
-  `image` blob NOT NULL
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `username`, `Likes`, `Recipe_Name`, `description_recipe`, `image`) VALUES
+(6, 'adilhamed', 3, 'noor1', 'hello', 'Images/2019_01_28_15_02_21Screenshot (14).png'),
+(7, 'adilhamed', 1, 'dsf', 's', 'Images/2019_01_28_15_03_1524232795_1457025634408436_3301562793659613141_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -73,7 +81,8 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`Recipe_id`, `Recipe_Name`, `Recipe_Description`) VALUES
-(2, 'huhuhu', 'jdldsj');
+(3, 'burger', 'kdkjdfkjsdkljklsjdkljskldjfklsjdklfjksldjfkljsdklfjklsdjfkljskldjfklsdklfj'),
+(4, 'pizza', 'a very nice pizza');
 
 -- --------------------------------------------------------
 
@@ -96,6 +105,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`username`, `DateOfBirth`, `name`, `email`, `password`, `profilePicture`) VALUES
 ('adilhamed', '2019-01-02', 'adil muhammad hameed', 'a@xyz.com', 's', './Images/2019_01_21_15_14_574ea9ebcd2802d938629f9aabacabe4a4--devil-may-cry--base.jpg'),
+('dlkfsldfklsj', '2019-01-09', 'hello ahmed slkdl', 'uhuh@xyz.com', '123456789', './Images/2019_01_28_17_22_3420638650_10159364341670455_1877820994411410416_n.png'),
 ('haseebmanzoor', '2019-01-19', 'haseeb manzoor nothing', 'h@xyz.com', 's', './Images/2019_01_21_15_32_0114fbfd63332378ea42542d89b00253e5.jpg'),
 ('noorahmadzafar', '2019-01-03', 'noor ahmad zafar', 'n@xyz.com', 'noor123', './Images/2019_01_21_15_14_134dc3f48103f5518a22bf8e2e5115e0cf.jpg');
 
@@ -113,6 +123,7 @@ ALTER TABLE `admins`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
+  ADD PRIMARY KEY (`post_id`),
   ADD KEY `posts_ibfk_1` (`username`);
 
 --
@@ -133,10 +144,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
