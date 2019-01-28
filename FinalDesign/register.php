@@ -11,54 +11,72 @@ if (isset($_POST['register'])) {
     $pass2 = $_POST['pass2'];
     $dob = $_POST['dob'];
 
-    $querryy = "select *from user";
-    $checker = mysqli_query($con, $querryy);
-    while ($row = mysqli_fetch_assoc($checker)) {
-        if ($username === $row['username']) {
-            echo '<script type="text/javascript">alert("Sorry this username is already taken");</script>';
-            exit();
-        } else if ($email === $row['email']) {
-            echo '<script type="text/javascript">alert("Sorry this email is already taken");</script>';
-            exit();
-        }
+
+	if(strlen($pass1)<8 && strlen($pass2)<8) {
+        echo '<script type="text/javascript">
+				
+			alert("enter password greater than 8");
+			
+		</script>';
     }
+    else if($pass1!==$pass2)
+	{
+        echo '<script type="text/javascript">
+			
+			alert("passwords dont match");
+			
+		</script>';
+	}
+    else {
 
-
-    $fileType = $_FILES['pro_img']['type'];
-    $fileSize = $_FILES['pro_img']['size'];
-
-    if ($fileSize / 1024 > '2048') {
-        echo '<script type="text/javascript">alert("Sorry too large size");</script>';
-        exit();
-    } //FileSize Checking
-
-    if ($fileType != 'image/png' &&
-        $fileType != 'image/gif' &&
-        $fileType != 'image/jpg' &&
-        $fileType != 'image/jpeg'
-    ) {
-        echo '<script type="text/javascript">alert("Sorry this fomrat image not suported");</script>';
-        exit();
-    } //file type checking ends here.
-    $upFile = './Images/' . date('Y_m_d_H_i_s') . $_FILES['pro_img']['name'];
-
-    if (is_uploaded_file($_FILES['pro_img']['tmp_name'])) {
-        if (!move_uploaded_file($_FILES['pro_img']['tmp_name'], $upFile)) {
-            echo '<script type="text/javascript">alert("error try again later");</script>';
-        } else {
-            //insert query here
-
-            $name = $fname . " " . $mname . " " . $lname;
-            $insert_user = "insert into user (username,DateOfBirth,name,email,password,profilePicture) 
-                  VALUES ('$username','$dob','$name','$email','$pass1','$upFile');";
-            $insert_us = mysqli_query($con, $insert_user);
-            if ($insert_us) {
-                header("location: " . $_SERVER['PHP_SELF']);
+        $querryy = "select *from user";
+        $checker = mysqli_query($con, $querryy);
+        while ($row = mysqli_fetch_assoc($checker)) {
+            if ($username === $row['username']) {
+                echo '<script type="text/javascript">alert("Sorry this username is already taken");</script>';
+                exit();
+            } else if ($email === $row['email']) {
+                echo '<script type="text/javascript">alert("Sorry this email is already taken");</script>';
+                exit();
             }
+        }
 
+
+        $fileType = $_FILES['pro_img']['type'];
+        $fileSize = $_FILES['pro_img']['size'];
+
+        if ($fileSize / 1024 > '2048') {
+            echo '<script type="text/javascript">alert("Sorry too large size");</script>';
+            exit();
+        } //FileSize Checking
+
+        if ($fileType != 'image/png' &&
+            $fileType != 'image/gif' &&
+            $fileType != 'image/jpg' &&
+            $fileType != 'image/jpeg'
+        ) {
+            echo '<script type="text/javascript">alert("Sorry this fomrat image not suported");</script>';
+            exit();
+        } //file type checking ends here.
+        $upFile = './Images/' . date('Y_m_d_H_i_s') . $_FILES['pro_img']['name'];
+
+        if (is_uploaded_file($_FILES['pro_img']['tmp_name'])) {
+            if (!move_uploaded_file($_FILES['pro_img']['tmp_name'], $upFile)) {
+                echo '<script type="text/javascript">alert("error try again later");</script>';
+            } else {
+                //insert query here
+
+                $name = $fname . " " . $mname . " " . $lname;
+                $insert_user = "insert into user (username,DateOfBirth,name,email,password,profilePicture) 
+                  VALUES ('$username','$dob','$name','$email','$pass1','$upFile');";
+                $insert_us = mysqli_query($con, $insert_user);
+                if ($insert_us) {
+                    header("location: " . $_SERVER['PHP_SELF']);
+                }
+
+            }
         }
     }
-
 }
 ?>
 
@@ -121,6 +139,7 @@ Show_Navbar();
 				<br>
 				<button name="register" type="submit" class="btn btn-primary btn-block w-50 mx-auto">REGISTER NOW
 				</button>
+
 			</form>
 		</div>
 	</div>

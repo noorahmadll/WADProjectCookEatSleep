@@ -19,13 +19,29 @@ function Show_Footer()
 function Search_Bar()
 {
     echo '<div class="h-100">
+    <form method="post">
     <div class="d-flex justify-content-center h-100">
         <div class="sb">
-            <input class="search_input" type="text" name="" placeholder="FIND ANY FOOD">
-            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            <input class="search_input" type="text" name="searchfood" placeholder="FIND ANY FOOD" onkeyup="load(this.value)">
+            <a class="search_icon"><i class="fas fa-search"></i></a>            
+            <script>
+                function load(str) {
+                    var obj = new XMLHttpRequest();
+                    obj.onreadystatechange = function () {
+                        if (obj.readyState == 4 && obj.status == 200) {
+                            document.getElementById("filter").innerHTML = this.responseText;
+                        }
+                    };
+        
+                    obj.open("GET", "loadfoods.php?e=" + str);
+                    obj.send();
+        
+                }
+            </script>
         </div>
     </div>
-</div>';
+    </form>
+</div><div id="filter"></div>';
 }
 
 function Show_Navbar()
@@ -45,7 +61,7 @@ function Show_Navbar()
 					<a class="nav-link active" href="contact.php">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Search</a>
+					<a class="nav-link active" href="index.php">Search</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -81,7 +97,7 @@ function Show_Navbar_L()
 					<a class="nav-link active" href="contact.php">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="#">Search</a>
+					<a class="nav-link active" href="index.php">Search</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -162,16 +178,19 @@ function Load_Posts(){
     $result = mysqli_query($con, $query);
 
     while ($row = mysqli_fetch_assoc($result)) {
+
         echo'<div class="col-md-4" style="background-color: azure;">
 				<div class="single-content">
 					<h3><i class="fa fa-utensils"></i> '.$row['Recipe_Name'].'</h3>
 					<p>
                         '.$row['description_recipe'].'
 					</p>
-					<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/><br>
+					<img style="width:140px;height:140px;" src="'.$row['image'].'"/><br>
 					<a href="#">Details</a>
 					<p>posted by: '.$row['username'].'</p>
-					<Button class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like '.$row['Likes'].' </Button>
+					<form method="post" action="liker.php?postid='.$row['post_id'].'">
+					<Button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like '.$row['Likes'].' </Button>
+					</form>
 				</div>
 			</div>';
     }
