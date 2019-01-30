@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "Templates.php";
 ?>
 
@@ -39,7 +40,7 @@ else Show_Navbar();
                             <?php
                             FastFoodList("burger.png", "Burger");
                             FastFoodList("wrap.png", "Burger");
-                            FastFoodList("sandwich.png", "Sanwiches");
+                            FastFoodList("sandwich.png", "Sandwiches");
                             FastFoodList("chicken.png", "Chicken");
                             FastFoodList("pizza.png", "Pizza");
                             ?>

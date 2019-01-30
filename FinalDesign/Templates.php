@@ -41,7 +41,7 @@ function Search_Bar()
         </div>
     </div>
     </form>
-</div><div id="filter"></div>';
+</div><div class="container"><div  class="row" id="filter"></div></div>';
 }
 
 function Show_Navbar()
@@ -77,6 +77,7 @@ function Show_Navbar()
 	</div>
 </nav>';
 }
+
 function Show_Navbar_L()
 {
     echo '<nav class="navbar navbar-expand-md navbar-light bg-light visible clearfix ">
@@ -170,30 +171,26 @@ function ScriptTags()
 }
 
 
-
-function Load_Posts(){
-
+function Load_Posts()
+{
     $query = "select *from posts";
     global $con;
     $result = mysqli_query($con, $query);
-
     while ($row = mysqli_fetch_assoc($result)) {
-
-        echo'<div class="col-md-4" style="background-color: azure;">
+        $x=substr($row['description_recipe'],0,30);
+        echo '<div class="col-md-4" style="background-color: azure;">
 				<div class="single-content">
-					<h3><i class="fa fa-utensils"></i> '.$row['Recipe_Name'].'</h3>
+					<h3><i class="fa fa-utensils"></i> ' . $row['Recipe_Name'] . '</h3>
 					<p>
-                        '.$row['description_recipe'].'
+                        ' . $x . '...
 					</p>
-					<img style="width:140px;height:140px;" src="'.$row['image'].'"/><br>
-					<a href="#">Details</a>
-					<p>posted by: '.$row['username'].'</p>
-					<form method="post" action="liker.php?postid='.$row['post_id'].'">
-					<Button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like '.$row['Likes'].' </Button>
+					<img style="width:140px;height:140px;" src="' . $row['image'] . '"/><br>
+					<a target="_blank" href="Details.php?recipename='.$row['Recipe_Name'].'&desc='.$row['description_recipe'].'">Details</a>
+					<p>posted by: ' . $row['username'] . '</p>
+					<form method="post" action="liker.php?postid=' . $row['post_id'] . '">
+					<Button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-thumbs-up"></i> Like ' . $row['Likes'] . ' </Button>
 					</form>
 				</div>
 			</div>';
     }
-
-
 }
