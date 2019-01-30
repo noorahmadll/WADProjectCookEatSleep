@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 05:24 PM
+-- Generation Time: Jan 30, 2019 at 06:45 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -38,8 +38,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`user_email`, `user_pass`) VALUES
-('ha@xyz.com', '123'),
-('noor@xyz.com', '123');
+('adil@xyz.com', '12345678'),
+('noor@xyz.com', '123456789');
 
 -- --------------------------------------------------------
 
@@ -61,8 +61,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `username`, `Likes`, `Recipe_Name`, `description_recipe`, `image`) VALUES
-(6, 'adilhamed', 3, 'noor1', 'hello', 'Images/2019_01_28_15_02_21Screenshot (14).png'),
-(7, 'adilhamed', 1, 'dsf', 's', 'Images/2019_01_28_15_03_1524232795_1457025634408436_3301562793659613141_n.jpg');
+(10, 'adilhameed', 0, 'Recipe1', 'Description Description Description Description Description Description', 'Images/2019_01_30_18_35_09homemade-pizza-method-9-300x200.jpg'),
+(11, 'noorahmadll', 1, 'Recipe2', 'Description Description Description Description Description Description Description Description Description Description Description Description ', 'Images/2019_01_30_18_35_50homemade-pizza-method-9-300x200.jpg');
 
 -- --------------------------------------------------------
 
@@ -81,8 +81,9 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`Recipe_id`, `Recipe_Name`, `Recipe_Description`) VALUES
-(3, 'burger', 'kdkjdfkjsdkljklsjdkljskldjfklsjdklfjksldjfkljsdklfjklsdjfkljskldjfklsdklfj'),
-(4, 'pizza', 'a very nice pizza');
+(3, 'burger', 'Description Description Description Description Description Description Description Description Description Description '),
+(4, 'pizza', 'Description Description Description Description Description Description Description Description Description Description '),
+(5, 'burger', 'Description Description Description Description Description Description Description Description Description Description ');
 
 -- --------------------------------------------------------
 
@@ -104,10 +105,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `DateOfBirth`, `name`, `email`, `password`, `profilePicture`) VALUES
-('adilhamed', '2019-01-02', 'adil muhammad hameed', 'a@xyz.com', 's', './Images/2019_01_21_15_14_574ea9ebcd2802d938629f9aabacabe4a4--devil-may-cry--base.jpg'),
-('dlkfsldfklsj', '2019-01-09', 'hello ahmed slkdl', 'uhuh@xyz.com', '123456789', './Images/2019_01_28_17_22_3420638650_10159364341670455_1877820994411410416_n.png'),
-('haseebmanzoor', '2019-01-19', 'haseeb manzoor nothing', 'h@xyz.com', 's', './Images/2019_01_21_15_32_0114fbfd63332378ea42542d89b00253e5.jpg'),
-('noorahmadzafar', '2019-01-03', 'noor ahmad zafar', 'n@xyz.com', 'noor123', './Images/2019_01_21_15_14_134dc3f48103f5518a22bf8e2e5115e0cf.jpg');
+('adilhameed', '2019-01-01', 'Muhammad Adil Hameed', 'adil@xyz.com', '123456789', './Images/2019_01_30_18_15_46740c1c6522d18330bd2834a8f71e56aa--pretty-drawings-eye-drawings.jpg'),
+('haseebahmad', '2019-01-03', 'Muhammad Haseeb Manzoor', 'haseeb@xyz.com', '123456789', './Images/2019_01_30_18_16_4123916022_955702774586519_5490902065049505301_n.jpg'),
+('noorahmadll', '1997-11-21', 'Noor Ahmad Zafar', 'noor@xyz.com', '123456789', './Images/2019_01_30_18_14_5720638650_10159364341670455_1877820994411410416_n.png');
 
 --
 -- Indexes for dumped tables
@@ -147,13 +147,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
